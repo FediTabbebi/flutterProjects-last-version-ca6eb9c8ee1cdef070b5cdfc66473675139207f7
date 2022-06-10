@@ -368,7 +368,7 @@ Widget WaitingforResponse() => Visibility(
                       "Your request is being reviewed ",
                       style: TextStyle(
                           fontSize: 15,
-                          color: Color(0xFFF7B30c),
+                          color: Color(0xFF005b71),
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),

@@ -55,7 +55,7 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  Text("Accepted Propositions ",
+                  Text("Propositions ",
                       style: TextStyle(
                           color: Color(0xFF005b71),
                           fontWeight: FontWeight.bold,
@@ -67,8 +67,16 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding:
-                                const EdgeInsets.only(left: 30.0, right: 30),
-                            child: Container(
+                                const EdgeInsets.only(left: 30.0, right: 30,bottom:5),
+                            child:Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20),
+                                  ),
+                                  border: Border.all(
+                                    color: Color(0xFF005b71),
+                                    width: 1,
+                                  )),
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15.0),

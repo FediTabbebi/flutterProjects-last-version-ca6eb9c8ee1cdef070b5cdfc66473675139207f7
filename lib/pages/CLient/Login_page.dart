@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                 Center(
                     child: Center(
                         child: Container(
-                            child: Text("SIGN IN",
+                            child: Text("Sign in to IBlaze",
                                 style: GoogleFonts.roboto(
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,

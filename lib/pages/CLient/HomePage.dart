@@ -177,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10)),
                                 borderSide: BorderSide(
-                                    width: 1, color: Color(0xFFF7B30c)),
+                                    width: 1.75, color: Color(0xFF005b71)),
                               ),
                               hintText: 'Specify Your freight type ',
                               hintStyle: TextStyle(
@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  width: 1, color: Color(0xFFF7B30c)),
+                                  width: 1.75, color: Color(0xFF005b71)),
                             ),
                             hintText: 'Description (Optional)',
                             hintStyle: TextStyle(
@@ -238,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  width: 1, color: Color(0xFFF7B30c)),
+                                  width: 1.75, color: Color(0xFF005b71)),
                             ),
                             hintText: 'Weight / Quantity',
                             hintStyle: TextStyle(
@@ -283,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  width: 1, color: Color(0xFFF7B30c)),
+                                  width: 1.75, color: Color(0xFF005b71)),
                             ),
                             hintText: '           Departure Location',
                             hintStyle: TextStyle(
@@ -313,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  width: 1, color: Color(0xFFF7B30c)),
+                                  width: 1.75, color: Color(0xFF005b71)),
                             ),
                             hintText: 'Arrival Location ',
                             hintStyle: TextStyle(
