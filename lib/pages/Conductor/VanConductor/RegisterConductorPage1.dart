@@ -706,6 +706,7 @@ class _RegisterConductorPageState extends State<RegisterConductorPage> {
                       ),
                   child: Column(children: [
                     Row(
+                      
                       children: [
                         Container(
                             child: Icon(
@@ -720,11 +721,12 @@ class _RegisterConductorPageState extends State<RegisterConductorPage> {
                     ),
                     SizedBox(height: 10),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      
+                    
                       children: [
-                        SizedBox(width: 50),
+                        SizedBox(width: 75),
                         Text(
-                            "Your account will be upgraded to driver \nwhen your request has been processed."),
+                            "Your account will be upgraded to driver\nwhen your request has been processed."),
                       ],
                     )
                   ])),
