@@ -14,6 +14,7 @@ import '../../Widgets/button_widget.dart';
 import '../../data/globals.dart';
 import '../../services/userServices/Offre_Api.dart';
 import '../../services/userServices/Register_Login.dart';
+import '../Conductor/conductorLoginAs.dart';
 import 'TruckMachine_page.dart';
 import 'package:double_back_to_close/double_back_to_close.dart';
 
@@ -76,7 +77,7 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: () async {
         if (currentUser?.Status == "active") {
-          Get.to(() => LoginAs());
+          Get.to(() => LoginChoices());
         }
         final difference = DateTime.now().difference(timeBackPressed);
         final isExitWarning = difference >= Duration(seconds: 2);
@@ -99,6 +100,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: Stack(
           children: [
+            
             Center(
                 child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -106,6 +108,9 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    
+                     Image.asset("images/Lg.png",height: 50,width: 50,),
+                  
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Container(

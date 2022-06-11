@@ -43,15 +43,15 @@ class _OffersState extends State<Offers> {
         child: Scaffold(
           // backgroundColor: Color.fromARGB(255, 197, 188, 188),
           body: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color.fromARGB(62, 0, 90, 113),
-                    Color.fromARGB(62, 255, 255, 255),
-                  ]),
-            ),
+            // decoration: BoxDecoration(
+            //   gradient: LinearGradient(
+            //       begin: Alignment.topLeft,
+            //       end: Alignment.bottomRight,
+            //       colors: [
+            //         Color.fromARGB(62, 0, 90, 113),
+            //         Color.fromARGB(62, 255, 255, 255),
+            //       ]),
+            // ),
             child: Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Stack(
@@ -70,11 +70,18 @@ class _OffersState extends State<Offers> {
                           return Padding(
                             padding: const EdgeInsets.only(left: 30.0, right: 30, bottom: 5),
                             child: Card(
-                              
+                              //semanticContainer: false,
+                              shadowColor:  Color(0xFF005b71),
+                              elevation: 15,
+                             // color:  Color(0xFF005b71),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                               child: ExpansionTile(
+                               // collapsedTextColor: Color(0xFF005b71),
+                                trailing: Icon(Icons.arrow_drop_down_sharp,color: Color(0xFF005b71),size: 30,),
+                                leading:  CircleAvatar(
+  backgroundImage: AssetImage("images/LgiCon.png"),backgroundColor: Colors.white,),
                                 title: new RichText(
                                     text: new TextSpan(
                                   children: <TextSpan>[
@@ -86,73 +93,155 @@ class _OffersState extends State<Offers> {
                                     new TextSpan(
                                         text: offers[index].getDepart,
                                         style: GoogleFonts.roboto(
-                                          fontSize: 18,
+                                         // fontSize: 18,
                                           color: Color(0xFF005b71),
-                                          //fontWeight: FontWeight.bold
+                                          fontWeight: FontWeight.bold
                                         )),
                                     new TextSpan(
                                         style: GoogleFonts.roboto(
-                                            fontSize: 16,
+                                           // fontSize: 16,
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold),
                                         text: '    To     '),
                                     new TextSpan(
                                         text: offers[index].getArrivee,
                                         style: GoogleFonts.roboto(
-                                          fontSize: 18,
+                                         // fontSize: 18,
                                           color: Color(0xFF005b71),
-                                          //fontWeight: FontWeight.bold
+                                         fontWeight: FontWeight.bold
                                         )),
                                   ],
                                 )),
                                 children: [
+                                  
                                   Container(
                                     child: ListTile(
-                                      title: Text("Departure Location : " +
-                                          offers[index].getDepart),
-                                    ),
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Departure Location : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:offers[index].getDepart,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
                                   ),
-                                  Container(
-                                    //height: 20,
-                                    child: ListTile(
-                                      title: Text("Arrival Location : " +
-                                          offers[index].getArrivee),
-                                    ),
-                                  ),
-                                  Container(
-                                    // color    height: 20,
-                                    child: ListTile(
-                                      title: Text("Freight Type : " +
-                                          offers[index].getFreightType),
-                                    ),
-                                  ),
-                                  Container(
-                                    // color    height: 20,
-                                    child: ListTile(
-                                      title: Text("Description : " +
-                                          offers[index].getDescription),
-                                    ),
-                                  ),
-                                  Container(
-                                    //  height: 20,
-                                    child: ListTile(
-                                      title: Text("Quantity : " +
-                                          offers[index].getQuantity),
-                                    ),
-                                  ),
-                                  Container(
-                                    // height: 20,
-                                    child: ListTile(
-                                      title: Text("Delivery time : " +
-                                          "${offers[index].getDeliveryTime}"
-                                          ),
+                                      ),
                                     ),
                                   ),
                                   Container(
                                     child: ListTile(
-                                      title: Text(offers[index].getResponse),
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Arrival Location : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:offers[index].getArrivee,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Freight Type : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:offers[index].getFreightType,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Description : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:offers[index].getDescription,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Quantity : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:offers[index].getQuantity,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Delivery time :  ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:"${offers[index].getDeliveryTime}",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                     
+                                         new TextSpan(text:offers[index].getResponse,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
                                     ),
                                   ),
+                                
+                                 
+                               
                                   ListTile(
                                     onTap: () {
                                       Get.to(() => updateOffre(index: index));
@@ -160,9 +249,10 @@ class _OffersState extends State<Offers> {
                                     },
                                     title: Text("Edit",
                                         style:
-                                            TextStyle(color: Color(0xFF005b71))),
+                                            TextStyle(color: Color(0xFF005b71), fontWeight: FontWeight.bold)),
                                     trailing: Icon(Icons.edit,
                                         color: Color(0xFF005b71)),
+                                        
                                   ),
                                   ListTile(
                                     onTap: () async {
@@ -170,7 +260,7 @@ class _OffersState extends State<Offers> {
                                           title: "!",
                                           titleStyle: TextStyle(
                                               fontSize: 30,
-                                              color: Color(0xFFE40613)),
+                                              color: Color(0xFFE40613),),
                                           middleText:
                                               "Are you sure you want to delete this Offer ! \n ",
                                           middleTextStyle:
@@ -217,7 +307,7 @@ class _OffersState extends State<Offers> {
                                     },
                                     title: Text("Delete",
                                         style:
-                                            TextStyle(color: Color(0xFFE40613))),
+                                            TextStyle(color: Color(0xFFE40613), fontWeight: FontWeight.bold)),
                                     trailing: Icon(Icons.delete,
                                         color: Color(0xFFE40613)),
                                   ),

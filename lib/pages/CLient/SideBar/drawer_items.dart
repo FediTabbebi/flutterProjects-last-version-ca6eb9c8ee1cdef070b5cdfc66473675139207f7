@@ -20,12 +20,12 @@ class DrawerItem extends StatelessWidget {
         hoverColor: Colors.transparent,
         onTap: onPressed,
         child: SizedBox(
-          height: 40,
+         height: 40,
           child: Row(
             children: [
               Icon(
                 icon,
-                size: 20,
+               // size: 20,
                 color: Color(0xFF005b71),
               ),
               const SizedBox(
@@ -33,7 +33,7 @@ class DrawerItem extends StatelessWidget {
               ),
               Text(
                 name,
-                style: const TextStyle(fontSize: 20, color: Color(0xFF005b71)),
+                style: const TextStyle( fontSize:20,color: Color(0xFF005b71)),
               )
             ],
           ),

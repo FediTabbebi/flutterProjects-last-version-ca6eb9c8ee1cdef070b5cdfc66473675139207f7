@@ -11,6 +11,7 @@ import '../services/userServices/Register_Login.dart';
 import 'CLient/TruckMachine_page.dart';
 import 'CLient/Login_page.dart';
 import 'Conductor/VanConductor/conductorPage.dart';
+import 'Conductor/conductorLoginAs.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key? key, required this.title}) : super(key: key);
@@ -87,7 +88,7 @@ void checkIfLoggin() async {
   if (checkLogin && currentUser?.Status == "active") {
     APIServiceConductor.LoginConductor(
         userData.read("email"), userData.read("password"));
-    Get.off(() => LoginAs());
+    Get.off(() => LoginChoices());
   } else if (checkLogin &&
       (currentUser?.Status == "pending" ||
           currentUser?.Status == "rejected" ||

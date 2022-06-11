@@ -34,13 +34,14 @@ class _ClientPageState extends State<ClientPage> {
     return ScreenUtilInit(
       builder: (context,child) => SafeArea(
         child: Scaffold(
+         
           body: screens[index],
           bottomNavigationBar: NavigationBarTheme(
             data: NavigationBarThemeData(
               height: 45.h,
               indicatorColor: Colors.transparent,
               labelTextStyle: MaterialStateProperty.all(TextStyle(
-                  fontSize: 13,
+                  fontSize: 10.h.w,
                   fontWeight: FontWeight.w500,
                   color: Colors.white)),
               labelBehavior:
@@ -94,6 +95,8 @@ class _ClientPageState extends State<ClientPage> {
               )
             ],
             backgroundColor: Color(0xFF005b71),
+           // foregroundColor: Color(0xFF005b71),
+           // shadowColor: Colors.transparent,
           ),
         ),
       ),

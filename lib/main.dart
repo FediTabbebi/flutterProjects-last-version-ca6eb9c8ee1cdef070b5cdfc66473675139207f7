@@ -4,6 +4,8 @@ import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:iblaze/pages/CLient/Register_page.dart';
 import 'package:iblaze/pages/Conductor/AddVehiclePage.dart';
+import 'package:iblaze/pages/Conductor/LoginAs.dart';
+import 'package:iblaze/pages/Conductor/conductorLoginAs.dart';
 import 'package:iblaze/pages/splash_screen.dart';
 import 'package:iblaze/testing.dart';
 
@@ -25,9 +27,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(title: 'Flutter'),
-      // home: RegisterPage(),
-      // home: AddVehicle()
+     home: SplashScreen(title: 'Flutter'),
+      // home: LoginAs(),
+     //  home: testingChip()
     );
   }
 }

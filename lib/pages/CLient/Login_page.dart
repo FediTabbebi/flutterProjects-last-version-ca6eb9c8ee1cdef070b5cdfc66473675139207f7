@@ -10,6 +10,7 @@ import '../../data/globals.dart';
 import '../../services/conductorServices/Register_Login_Conductor.dart';
 import '../../services/userServices/Register_Login.dart';
 import '../Conductor/LoginAs.dart';
+import '../Conductor/conductorLoginAs.dart';
 import 'TruckMachine_page.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -22,7 +23,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool passwordObscured = true;
-  late TextEditingController emailController, passwordController;
+   TextEditingController? emailController=userData.read("email");
   var password;
   var Email;
 
@@ -76,6 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     Email = value;
                   },
+                  controller: emailController,
                 ),
                 SizedBox(height: 15),
                 TextFormField(
@@ -108,6 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     password = value;
                   },
+                  
                   obscureText: passwordObscured,
                 ),
                 // Padding(
@@ -134,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                       //print("isDriVVEr : " "${currentUser?.isdriver}");
                       if (checkLogin && currentUser?.Status == "active" ) {
                         APIServiceConductor.LoginConductor(Email, password);
-                        Get.off(() => LoginAs());
+                        Get.off(() => LoginChoices());
 
                         userData.write("password", '${password}');
                         userData.write("email", '${Email}');
@@ -155,24 +158,24 @@ class _LoginPageState extends State<LoginPage> {
                         // userData.remove("password");
                         // userData.remove("email");
                         Get.defaultDialog(
-                            title: "Warning !",
+                            title: "Error !",
                             titleStyle: TextStyle(
-                                fontSize: 30,
+                                fontSize: 25,
                                 color: Color(0xFFE40613),
                                 fontWeight: FontWeight.bold),
                             middleText: " Your account has been deleted !",
                             middleTextStyle: TextStyle(
-                                color: Color(0xFF005b71), fontSize: 20));
+                               color: Color(0xFF005b71),  fontSize: 17.5,fontWeight:FontWeight.bold));
                       } if (!checkLogin){
                         Get.defaultDialog(
                             title: "Error",
                             titleStyle: TextStyle(
-                                fontSize: 30,
+                                fontSize: 25,
                                 color: Color(0xFFE40613),
                                 fontWeight: FontWeight.bold),
                             middleText: "Invalid Email/Password !",
                             middleTextStyle: TextStyle(
-                                color: Color(0xFF005b71), fontSize: 20));
+                                color: Color(0xFF005b71), fontSize: 17.5,fontWeight:FontWeight.bold));
                       }
                     }),
                 Container(
