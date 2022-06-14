@@ -13,7 +13,7 @@ class UploadImages {
     var length = await imageFile.length();
 
     var request = new http.MultipartRequest(
-        "POST", Uri.parse('http://192.168.1.83:4000/image/upload'));
+        "POST", Uri.parse('http://192.168.1.51:4000/image/upload'));
     var multipartFile = new http.MultipartFile('testImage', stream, length,
         filename: basename(imageFile.path));
     request.fields.addAll({'name': ref});

@@ -23,7 +23,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool passwordObscured = true;
-   TextEditingController? emailController=userData.read("email");
+  
   var password;
   var Email;
 
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (value) {
                     Email = value;
                   },
-                  controller: emailController,
+                
                 ),
                 SizedBox(height: 15),
                 TextFormField(

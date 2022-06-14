@@ -82,12 +82,14 @@ class _UserState extends State<User> {
                   child: Text("Update",
                       style: TextStyle(color: Color(0xFF005b71))),
                   onPressed: () async {
-                    var x = checkLogin();
+                    var x = checkupdate();
                     if (x) {
                       await APIServiceUser.Update(currentUser?.id, NewName);
                       if (checkUpdate) {
                         Get.back();
-                   
+                    setState(() {
+                      LastuserName=NewName;
+                    });
                         currentConductor = new Conductor(
                           NewName,
                           currentConductor?.conductorEmail,
@@ -103,12 +105,12 @@ class _UserState extends State<User> {
                         Get.defaultDialog(
                             title: "Error",
                             titleStyle: TextStyle(
-                                fontSize: 30,
+                                fontSize: 25,
                                 color: Color(0xFFE40613),
                                 fontWeight: FontWeight.bold),
                             middleText: "Username can't be updated",
                             middleTextStyle: TextStyle(
-                                color: Color(0xFF005b71), fontSize: 20));
+                                color: Color(0xFF005b71), fontSize: 17.5, fontWeight: FontWeight.bold));
                       }
                       ;
                     }
@@ -118,7 +120,7 @@ class _UserState extends State<User> {
         });
   }
 
-  bool checkLogin() {
+  bool checkupdate() {
     final isValid = loginFormKey.currentState!.validate();
     if (!isValid) {
       return false;
@@ -141,82 +143,89 @@ class _UserState extends State<User> {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          body: SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Color.fromARGB(62, 255, 255, 255),
-                      Color.fromARGB(62, 0, 90, 113),
-                    ]),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 80),
-                  Image.asset(
-                    "images/userA.png",
-                    height: 120,
-                    width: 120,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 30, right: 30, top: 25),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: Text("${currentUser?.username}",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.roboto(
-                                  fontSize: 40,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: GestureDetector(
-                              onTap: () async {
-                                await ShowInformationDialog(context);
-                              },
-                              child: Icon(Icons.edit,
-                                  color: Colors.grey, size: 20)),
-                        )
-                      ],
+          //resizeToAvoidBottomInset: false,
+          body: Stack(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            alignment: AlignmentDirectional.topCenter ,
+            children: [
+              
+              Padding(
+                padding: const EdgeInsets.only(top:80),
+                child: Column(
+                  children: 
+                    [Container(
+                        //  decoration: BoxDecoration(
+                        //             borderRadius: BorderRadius.circular(100),
+                        //             border: Border.all(
+                        //               color: Color(0xFFF7B30c),
+                        //               width: 2,
+                        //             )),
+                      child: Image.asset(
+                        "images/userA.png",
+                        height: 150,
+                        width: 150,
+                      ),
                     ),
+                //     child: Padding(
+                //  padding: EdgeInsets.only(left: 30, right: 30, bottom: 80),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30,top: 30),
+                        child: Text("${currentUser?.username}",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.roboto(
+                                fontSize: 40,
+                                 color: Color(0xFF005b71),
+                                fontWeight: FontWeight.bold,letterSpacing: 1)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10,top:30),
+                        child: GestureDetector(
+                            onTap: () async {
+                              await ShowInformationDialog(context);
+                            },
+                            child: Icon(Icons.edit,
+                                color: Colors.grey, size: 25)),
+                      )
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 30, right: 30, top: 5),
-                    child: Text("${currentUser?.email}",
-                        textAlign: TextAlign.center,
-                        style:
-                            TextStyle(fontSize: 20, color: Color(0xFF005b71))),
-                  ),
-                  SizedBox(height: 220),
-                  Padding(
-                    padding: EdgeInsets.only(left: 30, right: 30, top: 15),
+                   Text("${currentUser?.email}",
+                      //textAlign: TextAlign.,
+                      style:
+                          TextStyle(fontSize: 20, color: Color(0xFF005b71),letterSpacing: 3.0)),
+                
+                  ],
+                ),
+              ),
+             
+            //  SizedBox(height: 220),
+              Padding(
+                padding: EdgeInsets.only(left: 30, right: 30, top: 15,bottom: 20),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
                     child: Row(
+                    //  crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Account Created On : ",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Color.fromARGB(255, 126, 124, 124),
+                                 color: Color(0xFF005b71),
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold)),
                         Text("${currentUser?.creationDate}",
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.grey, fontSize: 20)),
+                            style: TextStyle(color:Color(0xFFF7B30c), fontSize: 20)),
                       ],
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
+              
+            ],
           ),
         ),
       ),

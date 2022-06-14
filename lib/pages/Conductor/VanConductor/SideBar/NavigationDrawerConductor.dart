@@ -21,7 +21,7 @@ class NavigationDrawerConduct extends StatelessWidget {
     return ScreenUtilInit(
         builder: (context,child) => Drawer(
               child: Material(
-                color: Colors.white,
+                color: Color(0xFF005b71),
                 child: Column(
                   children: [
                     Container(
@@ -29,8 +29,8 @@ class NavigationDrawerConduct extends StatelessWidget {
                       height: 200,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
+                         begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                             colors: [
                               Color.fromARGB(62, 0, 90, 113),
                               Color.fromARGB(62, 255, 255, 255),
@@ -111,44 +111,53 @@ String textEditing({required String Text}) {
   return newText;
 }
 
-Widget headerWidget({
-  required VoidCallback onClicked,
-}) =>
-    InkWell(
-        hoverColor: Colors.transparent,
-        onTap: onClicked,
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Container(
-            // color: Color(0xFFE40613),
-            child: Image.asset(
-              "images/conductor.png",
-              height: 100,
-              width: 100,
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Container(
-            //color: Colors.green,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(textEditing(Text: ('${currentConductor?.conductorName}')),
-                    style: GoogleFonts.roboto(
-                        fontSize: 30,
-                        color: Color(0xFF005b71),
-                        fontWeight: FontWeight.bold)),
-                Text("view profile",
-                    style: GoogleFonts.roboto(
-                      fontSize: 15,
-                      color: Color(0xFF005b71),
-                    )),
-              ],
-            ),
-          ),
-          SizedBox(
-            width: 50,
-          ),
-        ]));
+
+  Widget headerWidget({
+    required VoidCallback onClicked,
+  }) =>
+      InkWell(
+          hoverColor: Colors.transparent,
+          onTap: onClicked,
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(width: 30),
+                Container(
+                     decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(
+                               color: Colors.white,
+                                width: 0.3,
+                              )),
+                  // color: Color(0xFFE40613),
+                  child: Image.asset(
+                    "images/conductor.png",
+                    height: 100,
+                    width: 100,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  //color: Colors.green,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(textEditing(Text: "${currentConductor?.conductorName}"),
+                          style: GoogleFonts.roboto(
+                              fontSize: 30,fontWeight: FontWeight.bold,letterSpacing: 5.0,
+                             // color: Color(0xFFF7B30c)
+                            //  color: Color(0xFF005b71),
+                            color:Colors.white,
+                            )),
+                      Text("view profile",
+                          style: GoogleFonts.roboto(
+                            //fontSize: 15,
+                            color: Colors.white,
+                           // color: Color(0xFF005b71),
+                          )),
+                    ],
+                  ),
+                ),
+              ]));

@@ -1,11 +1,15 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class testing extends StatelessWidget {
-//   int test;
-//   const testing({required this.test})({Key? key}) : super(key: key);
+class Test extends StatelessWidget {
+  const Test({Key? key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+    
+      child : Center(child: Text("hello")),
+      color: Colors.green,
+  
+    );
+  }
+}

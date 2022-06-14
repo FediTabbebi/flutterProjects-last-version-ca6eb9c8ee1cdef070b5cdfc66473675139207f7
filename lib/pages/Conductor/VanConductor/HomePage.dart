@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   late TextEditingController PriceController;
   var Price;
-  String Description = "There is no description";
+  String Description = "No description";
   String? TruckModel;
   String? dropdownvalue;
   var indexValue = null;
@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                               }
                               if (x && indexValue != null) {
                                 await APIOffreConductor.RegisterOffre(
-                                    offers[index].getOffreId,
+                                    searchingList[index].getOffreId,
                                     currentConductor?.conductorId,
                                     ChosenTruckId[indexValue],
                                     Price,
@@ -222,28 +222,28 @@ class _HomePageState extends State<HomePage> {
                                             VanConductor(index: 1)),
                                     (Route<dynamic> route) => false,
                                   );
-                                  Fluttertoast.showToast(
-                                      msg:
-                                          "Your proposition has been submitted successfully",
-                                      toastLength: Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.BOTTOM,
-                                      timeInSecForIosWeb: 1,
-                                      backgroundColor: Colors.green,
-                                      textColor: Colors.white,
-                                      fontSize: 20.0);
+                                  // Fluttertoast.showToast(
+                                  //     msg:
+                                  //         "Your proposition has been submitted successfully",
+                                  //     toastLength: Toast.LENGTH_SHORT,
+                                  //     gravity: ToastGravity.BOTTOM,
+                                  //     timeInSecForIosWeb: 1,
+                                  //     backgroundColor: Colors.green,
+                                  //     textColor: Colors.white,
+                                  //     fontSize: 20.0);
                                 }
                               } else if (x && !ConductorRegisteringOffre) {
                                 Get.defaultDialog(
                                     title: "Error",
                                     titleStyle: TextStyle(
-                                        fontSize: 30,
+                                        fontSize: 25,
                                         color: Color(0xFFE40613),
                                         fontWeight: FontWeight.bold),
                                     middleText:
                                         "Your proposition can't be submitted !",
                                     middleTextStyle: TextStyle(
                                         color: Color(0xFF005b71),
-                                        fontSize: 20));
+                                        fontSize: 17.5, fontWeight: FontWeight.bold));
                               }
                             },
                           child: Container(
@@ -288,15 +288,15 @@ class _HomePageState extends State<HomePage> {
         },
         child: Scaffold(
           body: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color.fromARGB(62, 0, 90, 113),
-                    Color.fromARGB(62, 255, 255, 255),
-                  ]),
-            ),
+            // decoration: BoxDecoration(
+            //   gradient: LinearGradient(
+            //       begin: Alignment.topLeft,
+            //       end: Alignment.bottomRight,
+            //       colors: [
+            //         Color.fromARGB(62, 0, 90, 113),
+            //         Color.fromARGB(62, 255, 255, 255),
+            //       ]),
+            // ),
             child: Column(
               children: [
                 buildSearch(),
@@ -311,118 +311,230 @@ class _HomePageState extends State<HomePage> {
                                 const EdgeInsets.only(left: 30.0, right: 30),
                             child: Container(
                               child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                child: ExpansionTile(
-                                  title: new RichText(
-                                      text: new TextSpan(
-                                    children: <TextSpan>[
-                                      // new TextSpan(
-                                      //     style: new TextStyle(
-                                      //       color: Colors.black,
-                                      //     ),
-                                      //     text: 'From '),
-                                      new TextSpan(
-                                          text: searchingList[index].getDepart,
-                                          style: GoogleFonts.roboto(
-                                            fontSize: 18,
-                                            color: Color(0xFF005b71),
-                                            //fontWeight: FontWeight.bold
-                                          )),
-                                      new TextSpan(
-                                          style: GoogleFonts.roboto(
-                                              fontSize: 16,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold),
-                                          text: '    To     '),
-                                      new TextSpan(
-                                          text: searchingList[index].getArrivee,
-                                          style: GoogleFonts.roboto(
-                                            fontSize: 18,
-                                            color: Color(0xFF005b71),
-                                            //fontWeight: FontWeight.bold
-                                          )),
-                                    ],
-                                  )),
-                                  children: [
-                                    Container(
-                                      // height: 20,
-                                      child: ListTile(
-                                        title: Text("Departure Location : " +
-                                            searchingList[index].getDepart),
-                                      ),
-                                    ),
-                                    Container(
-                                      // height: 20,
-                                      child: ListTile(
-                                        title: Text("Arrival Location : " +
-                                            searchingList[index].getArrivee),
-                                      ),
-                                    ),
-                                    Container(
-                                      //  height: 20,
-                                      child: ListTile(
-                                        title: Text("Freight Type : " +
-                                            searchingList[index]
-                                                .getFreightType),
-                                      ),
-                                    ),
-                                    Container(
-                                      //  height: 20,
-                                      child: ListTile(
-                                        title: Text("Client description : " +
-                                            searchingList[index]
-                                                .getUserDescription),
-                                      ),
-                                    ),
-                                    Container(
-                                      //  height: 20,
-                                      child: ListTile(
-                                        title: Text("Quantity : " +
-                                            searchingList[index].getQuantity),
-                                      ),
-                                    ),
-                                    Container(
-                                      // height: 20,
-                                      child: ListTile(
-                                        title: Text("delivery time : " +
-                                            "${searchingList[index].getDeliveryTime}"),
-                                      ),
-                                    ),
-                                    Container(
-                                      // height: 20,
-                                      child: ListTile(
-                                        title: Text(
-                                            searchingList[index].getResponse),
-                                      ),
-                                    ),
-                                    Container(
-                                      child: ListTile(
-                                        title: Text("Client Name : "
-                                            "${searchingList[index].getUsername}"),
-                                      ),
-                                    ),
-                                    ListTile(
-                                      onTap: () async {
-                                        await ShowInformationDialog(
-                                            context, index);
-                                        // Get.to(() => updateOffre(index: index));
-                                        // print(index);
-                                      },
-                                      title: Text("Take this offer",
-                                          style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 33, 125, 56),
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold)),
-                                      trailing: Icon(
-                                        FontAwesomeIcons.handPointUp,
-                                        color: Color.fromARGB(255, 33, 125, 56),
-                                        size: 20,
-                                      ),
-                                    ),
+                              //semanticContainer: false,
+                              shadowColor:  Color(0xFF005b71),
+                              elevation: 15,
+                             // color:  Color(0xFF005b71),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: ExpansionTile(
+                               // collapsedTextColor: Color(0xFF005b71),
+                                trailing: Icon(Icons.arrow_drop_down_sharp,color: Color(0xFF005b71),size: 30,),
+                                leading:  CircleAvatar(
+  backgroundImage: AssetImage("images/LgiCon.png"),backgroundColor: Colors.white,),
+                                title: new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                    // new TextSpan(
+                                    //     style: new TextStyle(
+                                    //       color: Colors.black,
+                                    //     ),
+                                    //     text: 'From '),
+                                    new TextSpan(
+                                        text: searchingList[index].getDepart,
+                                        style: GoogleFonts.roboto(
+                                         // fontSize: 18,
+                                          color: Color(0xFF005b71),
+                                          fontWeight: FontWeight.bold
+                                        )),
+                                    new TextSpan(
+                                        style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                        text: '    To     '),
+                                    new TextSpan(
+                                        text: searchingList[index].getArrivee,
+                                        style: GoogleFonts.roboto(
+                                         // fontSize: 18,
+                                          color: Color(0xFF005b71),
+                                         fontWeight: FontWeight.bold
+                                        )),
                                   ],
+                                )),
+                                children: [
+                                  
+                                  Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Departure Location : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:searchingList[index].getDepart,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Arrival Location : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:searchingList[index].getArrivee,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Freight Type : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:searchingList[index].getFreightType,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Client description : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:searchingList[index].getUserDescription,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Quantity : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:searchingList[index].getQuantity,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Delivery time :  ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:"${searchingList[index].getDeliveryTime}",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                     
+                                         new TextSpan(text:searchingList[index].getResponse,style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,fontWeight: FontWeight.bold,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),
+                                   Container(
+                                    child: ListTile(
+                                      title:
+                                      new RichText(
+                                    text: new TextSpan(
+                                  children: <TextSpan>[
+                                      new TextSpan(text :"Client Name : ",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,), ),
+                                         new TextSpan(text:"${searchingList[index].getUsername}",style: GoogleFonts.roboto(
+                                           // fontSize: 16,
+                                            color: Colors.black,)) 
+                                  ],
+                                    
+                                  ),
+                                      ),
+                                    ),
+                                  ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                     //height: 55,
+                                             decoration: BoxDecoration(
+                                                color: Color(0xFF005b71),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                               color: Colors.white,
+                                width: 2,
+                              )),
+                                   child: ListTile(
+                                        onTap: () async {
+                                          await ShowInformationDialog(
+                                              context, index);
+                                          // Get.to(() => updateOffre(index: index));
+                                          // print(index);
+                                        },
+                                        title: Center(
+                                          child: Text("Take this offer",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  //fontSize: 20,
+                                                  fontWeight: FontWeight.bold)),
+                                        ),
+                                         trailing: Icon(FontAwesomeIcons.handHoldingDollar,
+                                          color: Colors.white,
+                                          //size: 20,
+                                        ),
+                                      )
+                                      ),
+                                    ),
+                              
+                                  ],
+                              
                                 ),
                               ),
                             ),

@@ -21,15 +21,19 @@ class _OffersState extends State<Offers> {
   @override
   void initState() {
     super.initState();
+    
 
     init();
   }
 
   void init() async {
     final offersp = await APIOffreUser.getOffers(currentUser?.id);
+   
     if (offersp != null) {
       setState(() {
+       // print (offersp.reversed);
         offers = offersp;
+        offers.reversed;
       });
     }
   }
@@ -66,7 +70,7 @@ class _OffersState extends State<Offers> {
                     padding: const EdgeInsets.only(top: 50),
                     child: ListView.builder(
                         itemCount: offers.length,
-                        itemBuilder: (BuildContext context, int index) {
+                        itemBuilder: (BuildContext context,  index) {
                           return Padding(
                             padding: const EdgeInsets.only(left: 30.0, right: 30, bottom: 5),
                             child: Card(
@@ -232,7 +236,7 @@ class _OffersState extends State<Offers> {
                                      
                                          new TextSpan(text:offers[index].getResponse,style: GoogleFonts.roboto(
                                            // fontSize: 16,
-                                            color: Colors.black,)) 
+                                            color: Colors.black,fontWeight: FontWeight.bold,)) 
                                   ],
                                     
                                   ),
@@ -244,8 +248,10 @@ class _OffersState extends State<Offers> {
                                
                                   ListTile(
                                     onTap: () {
-                                      Get.to(() => updateOffre(index: index));
-                                      print(index);
+                                      Get.to(() => updateOffre(index: index),transition: Transition.upToDown);
+                              duration:
+                              Duration(seconds: 2);
+                                     
                                     },
                                     title: Text("Edit",
                                         style:
@@ -257,14 +263,14 @@ class _OffersState extends State<Offers> {
                                   ListTile(
                                     onTap: () async {
                                       Get.defaultDialog(
-                                          title: "!",
+                                          title: "Warning",
                                           titleStyle: TextStyle(
-                                              fontSize: 30,
-                                              color: Color(0xFFE40613),),
+                                              fontSize: 25,
+                                              color: Color(0xFFE40613),fontWeight:  FontWeight.bold),
                                           middleText:
-                                              "Are you sure you want to delete this Offer ! \n ",
+                                              "Are you sure you want to delete this Offer ! ",
                                           middleTextStyle:
-                                              TextStyle(fontSize: 20),
+                                              TextStyle(fontSize: 17.5,fontWeight:  FontWeight.bold),
                                           textCancel: "Cancel",
                                           cancelTextColor: Colors.black,
                                           textConfirm: "Confirm",
@@ -281,14 +287,13 @@ class _OffersState extends State<Offers> {
                                               Get.defaultDialog(
                                                   title: "Done",
                                                   titleStyle: TextStyle(
-                                                      fontSize: 30,
-                                                      color: Color.fromARGB(
-                                                          255, 10, 101, 13)),
+                                                      fontSize: 25,
+                                                      color: Color.fromARGB(255, 33, 125, 56),fontWeight:  FontWeight.bold),
                                                   middleText:
                                                       "Your offer has been deleted !",
                                                   middleTextStyle: TextStyle(
-                                                      color: Color(0xFF005b71),
-                                                      fontSize: 20));
+                                                      color: Colors.black,
+                                                      fontSize: 17.5,fontWeight: FontWeight.bold));
                                             } else {
                                               Get.defaultDialog(
                                                   title: "Error",

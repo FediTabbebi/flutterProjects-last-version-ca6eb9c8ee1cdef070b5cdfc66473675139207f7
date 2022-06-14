@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iblaze/data/globals.dart';
 // import 'changeName.dart';
 
@@ -19,69 +20,83 @@ class _ConductorProfileState extends State<ConductorProfile> {
         centerTitle: true,
         backgroundColor: Color(0xFF005b71),
       ),
-      body: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color.fromARGB(62, 255, 255, 255),
-                    Color.fromARGB(62, 0, 90, 113),
-                  ]),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 80),
-                Image.asset(
-                  "images/conductor.png",
-                  height: 140,
-                  width: 140,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30, top: 25),
-                  child: Row(
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Scaffold(
+          //resizeToAvoidBottomInset: false,
+          body: Stack(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            alignment: AlignmentDirectional.topCenter ,
+            children: [
+              
+              Padding(
+                padding: const EdgeInsets.only(top:80),
+                child: Column(
+                  children: 
+                    [Container(
+                        //  decoration: BoxDecoration(
+                        //             borderRadius: BorderRadius.circular(100),
+                        //             border: Border.all(
+                        //               color: Color(0xFFF7B30c),
+                        //               width: 2,
+                        //             )),
+                      child: Image.asset(
+                        "images/conductor.png",
+                        height: 150,
+                        width: 150,
+                      ),
+                    ),
+                //     child: Padding(
+                //  padding: EdgeInsets.only(left: 30, right: 30, bottom: 80),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("${currentConductor?.conductorName}",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: GoogleFonts.roboto(
                               fontSize: 40,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
+                               color: Color(0xFF005b71),
+                              fontWeight: FontWeight.bold,letterSpacing: 1)),
+                     
                     ],
                   ),
+                   Text("${currentConductor?.conductorEmail}",
+                      //textAlign: TextAlign.,
+                      style:
+                          TextStyle(fontSize: 20, color: Color(0xFF005b71),letterSpacing: 3.0)),
+                
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30, top: 5),
-                  child: Text("${currentConductor?.conductorEmail}",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 20, color: Color(0xFF005b71))),
-                ),
-                SizedBox(height: 220),
-                Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30, top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Account Created On : ",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 126, 124, 124),
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold)),
-                      Text("${currentConductor?.creationDate}",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.grey, fontSize: 20)),
-                    ],
+              ),
+             
+            //  SizedBox(height: 220),
+              Padding(
+                padding: EdgeInsets.only(left: 30, right: 30, top: 15,bottom: 20),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    child: Row(
+                    //  crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Account Created On : ",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                 color: Color(0xFF005b71),
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold)),
+                        Text("${currentConductor?.creationDate}",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color:Color(0xFFF7B30c), fontSize: 20)),
+                      ],
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              
+            ],
           ),
         ),
       ),

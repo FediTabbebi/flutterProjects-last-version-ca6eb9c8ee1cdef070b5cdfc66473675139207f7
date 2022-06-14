@@ -296,8 +296,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             onTap: () {
                               Get.to(() => LoginPage(),
                                   transition: Transition.upToDown);
-                              duration:
-                              Duration(seconds: 2);
+                              
                             },
                           )
                         ],

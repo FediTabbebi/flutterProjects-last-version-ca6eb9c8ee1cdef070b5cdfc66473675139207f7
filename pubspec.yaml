@@ -50,6 +50,7 @@ dependencies:
   double_back_to_close: ^2.0.0
   image_picker: ^0.8.5
   animated_splash_screen: ^1.2.0
+  pusher_channels_flutter: ^1.0.5
 
   
 

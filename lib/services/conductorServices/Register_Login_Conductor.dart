@@ -14,7 +14,7 @@ class APIServiceConductor {
       truckPaper, truckImage, drivingLicense, cin) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request(
-        'POST', Uri.parse('http://192.168.1.83:4000/conducteur/register'));
+        'POST', Uri.parse('http://192.168.1.51:4000/conducteur/register'));
     request.body = json.encode({
       "username": username,
       "email": email,
@@ -40,7 +40,7 @@ class APIServiceConductor {
   static LoginConductor(email, password) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request(
-        'POST', Uri.parse('http://192.168.1.83:4000/conducteur/login'));
+        'POST', Uri.parse('http://192.168.1.51:4000/conducteur/login'));
     request.body = json.encode({"email": email, "password": password});
     request.headers.addAll(headers);
 

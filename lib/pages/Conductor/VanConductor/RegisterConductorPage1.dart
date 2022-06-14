@@ -161,7 +161,7 @@ class _RegisterConductorPageState extends State<RegisterConductorPage> {
                                     fontWeight: FontWeight.bold),
                         middleText: "Check your inscription's details !",
                         middleTextStyle:
-                            TextStyle( fontSize: 17.5,fontWeight: FontWeight.bold));
+                            TextStyle( fontSize: 17.5,fontWeight: FontWeight.bold,color: Color(0xFF005b71),));
                   }
                 }
               }
@@ -177,7 +177,9 @@ class _RegisterConductorPageState extends State<RegisterConductorPage> {
           onStepCancel: () {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
-              Get.to(() => ClientPage(index: 0));
+              Get.to(() => ClientPage(index: 0),transition: Transition.upToDown, );
+                             
+              
             }
             currentStep == 0
                 ? null
@@ -224,7 +226,7 @@ class _RegisterConductorPageState extends State<RegisterConductorPage> {
                         child: ElevatedButton(
                           onPressed: details.onStepCancel,
                           child: Text(
-                            isLastStep ? 'BACK TO MAIN PAGE' : 'BACK',
+                            isLastStep ? 'BACK TO HOME PAGE' : 'BACK',
                             style: TextStyle(
                                 color: Color(0xFF005b71), fontSize: 17.5),
                           ),

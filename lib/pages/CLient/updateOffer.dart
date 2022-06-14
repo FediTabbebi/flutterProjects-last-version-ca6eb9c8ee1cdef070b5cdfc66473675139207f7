@@ -51,6 +51,7 @@ class _updateOffreState extends State<updateOffre> {
   String? OldDescription;
   List<OffreModel> offer = [];
     List<String> dropDownBtnItem = [];
+    Color yellowColor=Color(0xFFF7B30c);
   @override
   void initState() {
     super.initState();
@@ -95,14 +96,14 @@ class _updateOffreState extends State<updateOffre> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15.0),
                   child: Text("Edit your offer ",
-                      style: TextStyle(color: Color(0xFF005b71), fontSize: 30)),
+                      style: TextStyle(color: Color(0xFF005b71), fontSize: 30,fontWeight:  FontWeight.bold,letterSpacing: 1)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
-                        border: Border.all(color: Color(0xFF005b71), width: 2)),
+                        border: Border.all(color: Color(0xFF005b71), width: 1)),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
                         isExpanded: true,
@@ -174,7 +175,7 @@ class _updateOffreState extends State<updateOffre> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide:
-                                BorderSide(width: 1, color: Color(0xFF005b71)),
+                                BorderSide(width: 1, color: Color(0xFFF7B30c),),
                           ),
                           hintText: 'Specify Your freight type ',
                           hintStyle: TextStyle(
@@ -213,7 +214,7 @@ class _updateOffreState extends State<updateOffre> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide:
-                              BorderSide(width: 1, color: Color(0xFF005b71)),
+                              BorderSide(width: 1, color: Color(0xFFF7B30c),),
                         ),
                         hintText: 'Description',
                         hintStyle: TextStyle(
@@ -251,7 +252,7 @@ class _updateOffreState extends State<updateOffre> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide:
-                              BorderSide(width: 1, color: Color(0xFF005b71)),
+                              BorderSide(width: 1, color: Color(0xFFF7B30c),),
                         ),
                         hintText: 'Weight / Quantity',
                         hintStyle: TextStyle(
@@ -298,7 +299,7 @@ class _updateOffreState extends State<updateOffre> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide:
-                              BorderSide(width: 1, color: Color(0xFF005b71)),
+                              BorderSide(width: 1, color: Color(0xFFF7B30c),),
                         ),
                         hintText: 'Departure Location',
                         hintStyle: TextStyle(
@@ -336,7 +337,7 @@ class _updateOffreState extends State<updateOffre> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide:
-                              BorderSide(width: 1, color: Color(0xFF005b71)),
+                              BorderSide(width: 1, color: Color(0xFFF7B30c),),
                         ),
                         hintText: 'Arrival Location ',
                         hintStyle: TextStyle(
@@ -355,34 +356,44 @@ class _updateOffreState extends State<updateOffre> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                          onPressed: () {
-                            pickDateTime(context);
-                          },
-                          child: Row(
-                            children: [
-                              SizedBox(width: 20),
-                              Text(
-                                  DateFormat(' MM/dd/yyyy HH:mm')
-                                      .format(dateTime),
-                                  style: TextStyle(fontSize: 17.5)),
-                              SizedBox(width: 20),
-                              Icon(Icons.edit, size: 17.5),
-                            ],
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xFF005b71),
-                            shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(20.0),
-                            ),
-                          ))
-                    ],
-                  ),
-                ),
+                      padding: EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                yellowColor=Color(0xFF005b71);
+                                pickDateTime(context);
+                              },
+                              child: Row(
+                                children: [
+                                  SizedBox(width: 20),
+                                  Text(
+                                      DateFormat('MM/dd/yyyy HH:mm ')
+                                          .format(dateTime),
+                                      style: TextStyle(fontSize: 17.5)),
+                                  SizedBox(width: 20),
+                                  Icon(Icons.edit, size: 17.5),
+                                ],
+                              ),
+                              style: TextButton.styleFrom(
+                                primary: Color.fromARGB(255, 0, 90, 113),
+                              backgroundColor: Colors.white,
+                                shape: new RoundedRectangleBorder(
+                                  side: BorderSide(
+                                     color: yellowColor,
+                                           width: 0.5,
+                                     style: BorderStyle.solid
+                                       ), borderRadius: BorderRadius.circular(30)
+                            
+                                  
+                                ),
+                                
+                              )
+                              )
+                        ],
+                      ),
+                    ),
                 Padding(
                   padding: EdgeInsets.only(top: 10),
                   child: Row(
@@ -426,10 +437,13 @@ class _updateOffreState extends State<updateOffre> {
                       ]),
                 ),
                 SizedBox(height: 20),
-                ButtonWidget(
-                    text: "Update your offer",
-                    onClicked: () async {
-                      if (freightType == null ||
+               Container(
+       padding: EdgeInsets.only( left:75,right:70,bottom: 20),
+      height: 60,
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed:  () async {
+                          if (freightType == null ||
                           quantity == null ||
                           depart == null ||
                           arrivee == null ||
@@ -440,12 +454,12 @@ class _updateOffreState extends State<updateOffre> {
                         Get.defaultDialog(
                             title: "Error",
                             titleStyle: TextStyle(
-                                fontSize: 30,
+                                fontSize: 25,
                                 color: Color(0xFFE40613),
                                 fontWeight: FontWeight.bold),
-                            middleText: "Check your offer",
+                            middleText: "Check your offer !",
                             middleTextStyle: TextStyle(
-                                color: Color(0xFF005b71), fontSize: 20));
+                                color: Color(0xFF005b71), fontSize: 17.5,fontWeight: FontWeight.bold));
                       } else {
                         Get.defaultDialog(
                             title: "Check",
@@ -492,17 +506,35 @@ class _updateOffreState extends State<updateOffre> {
                                 Get.defaultDialog(
                                   title: "Error",
                                   titleStyle: TextStyle(
-                                      fontSize: 30,
+                                      fontSize: 25,
                                       color: Color(0xFFE40613),
                                       fontWeight: FontWeight.bold),
-                                  middleText: "Check your offer",
+                                  middleText: "Something went wrong",
                                   middleTextStyle: TextStyle(
-                                      color: Color(0xFF005b71), fontSize: 20),
+                                      color: Color(0xFF005b71), fontSize: 17.5,fontWeight: FontWeight.bold),
                                 );
                               }
                             });
                       }
-                    }),
+                    },
+        child: Text("Update",
+          
+          style: GoogleFonts.roboto(color: Colors.white, fontSize: 17.5),
+        ),
+         style: TextButton.styleFrom(
+                         primary: Color.fromARGB(255, 0, 90, 113),
+                       backgroundColor: Color(0xFF005b71),
+                         shape: new RoundedRectangleBorder(
+                           side: BorderSide(
+                              color: Colors.white,
+                                    width: 2,
+                              style: BorderStyle.solid
+                                ), borderRadius: BorderRadius.circular(30)
+                     
+                           
+                         ),
+                    )),),
+                    
                 SizedBox(height: 20)
               ],
             ),

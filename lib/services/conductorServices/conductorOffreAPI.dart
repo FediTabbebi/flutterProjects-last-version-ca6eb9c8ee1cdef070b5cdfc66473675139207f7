@@ -10,7 +10,7 @@ class APIOffreConductor {
   static Future<List<AllOffers>> getAllOffers(userId, conductorId) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request(
-        'POST', Uri.parse('http://192.168.1.83:4000/conducteur/offer/getall'));
+        'POST', Uri.parse('http://192.168.1.51:4000/conducteur/offer/getall'));
     request.body = json.encode({
       "user": userId,
       "conducteur": conductorId,
@@ -46,7 +46,7 @@ class APIOffreConductor {
       offreID, ConductorId, TruckID, Price, Description) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request('POST',
-        Uri.parse('http://192.168.1.83:4000/conducteur/offer/register'));
+        Uri.parse('http://192.168.1.51:4000/conducteur/offer/register'));
     request.body = json.encode({
       "offer": offreID,
       "conducteur": ConductorId,
@@ -73,7 +73,7 @@ class APIOffreConductor {
     var request = http.Request(
         'POST',
         Uri.parse(
-            'http://192.168.1.83:4000/conducteur/offer/getacceptedoffersbyconducteur'));
+            'http://192.168.1.51:4000/conducteur/offer/getacceptedoffersbyconducteur'));
     request.body =
         json.encode({"conducteur": ConductorId, "status": propostionStatus});
     request.headers.addAll(headers);
@@ -108,7 +108,7 @@ class APIOffreConductor {
   static DeleteOffre(offreID) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request('DELETE',
-        Uri.parse('http://192.168.1.83:4000/conducteur/offer/delete'));
+        Uri.parse('http://192.168.1.51:4000/conducteur/offer/delete'));
     request.body = json.encode({"conducteuroffer": offreID});
     request.headers.addAll(headers);
 
@@ -127,7 +127,7 @@ class APIOffreConductor {
     var request = http.Request(
         'POST',
         Uri.parse(
-            'http://192.168.1.83:4000/conducteur/offer/getacceptedoffersbyconducteur'));
+            'http://192.168.1.51:4000/conducteur/offer/getacceptedoffersbyconducteur'));
     request.body =
         json.encode({"conducteur": ConductorID, "status": "finished"});
     request.headers.addAll(headers);

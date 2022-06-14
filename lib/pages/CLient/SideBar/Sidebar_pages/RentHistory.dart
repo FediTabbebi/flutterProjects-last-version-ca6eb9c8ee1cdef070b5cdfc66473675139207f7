@@ -46,15 +46,7 @@ class _RentHistoryState extends State<RentHistory> {
             backgroundColor: Color(0xFF005b71),
           ),
           body: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color.fromARGB(62, 0, 90, 113),
-                    Color.fromARGB(62, 255, 255, 255),
-                  ]),
-            ),
+         
             child: Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Stack(

@@ -66,18 +66,14 @@ class _VanConductorState extends State<VanConductor> {
                     label: 'Home',
                   ),
                   NavigationDestination(
-                    icon: Icon(Icons.email, color: Colors.white, size: 20.h.w),
+                    icon: Icon(FontAwesomeIcons.solidPaperPlane, color: Colors.white, size: 20.h.w),
                     label: 'Propositions',
                   ),
                   NavigationDestination(
-                    icon: Icon(Icons.check, color: Colors.white, size: 20.h.w),
-                    label: 'Accepted Props',
+                    icon: Icon(FontAwesomeIcons.checkToSlot, color: Colors.white, size: 20.h.w),
+                    label: ' Props',
                   ),
-                  NavigationDestination(
-                    icon: Icon(FontAwesomeIcons.xmark,
-                        color: Colors.white, size: 20.h.w),
-                    label: 'Declined Props',
-                  )
+                 
                 ]),
           ),
           drawer: const NavigationDrawerConduct(),

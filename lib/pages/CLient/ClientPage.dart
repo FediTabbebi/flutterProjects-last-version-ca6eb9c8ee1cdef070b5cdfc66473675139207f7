@@ -12,6 +12,8 @@ import 'SideBar/NaviagtionDrawer.dart';
 import 'SideBar/UserAccpetedOffers.dart';
 import 'offers.dart';
 
+import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
+
 class ClientPage extends StatefulWidget {
   int index;
 
@@ -28,7 +30,8 @@ class _ClientPageState extends State<ClientPage> {
   _ClientPageState(this.index);
   int index = 0;
   final screens = [HomePage(), Offers(), UserAcceptedOffers()];
-  @override
+ @override
+ 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

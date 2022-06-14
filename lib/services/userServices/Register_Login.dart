@@ -19,7 +19,7 @@ class APIServiceUser {
   static Future<void> login(email, password) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request(
-        'POST', Uri.parse('http://192.168.1.83:4000/users/login'));
+        'POST', Uri.parse('http://192.168.1.51:4000/users/login'));
     request.body = json.encode({"email": email, "password": password});
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -86,7 +86,7 @@ class APIServiceUser {
   static Register(username, email, password) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request(
-        'POST', Uri.parse('http://192.168.1.83:4000/users/register'));
+        'POST', Uri.parse('http://192.168.1.51:4000/users/register'));
     request.body = json
         .encode({"username": username, "email": email, "password": password});
     request.headers.addAll(headers);
@@ -104,7 +104,7 @@ class APIServiceUser {
   static Update(userID, Username) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request(
-        'PATCH', Uri.parse('http://192.168.1.83:4000/users/update'));
+        'PATCH', Uri.parse('http://192.168.1.51:4000/users/update'));
     request.body = json.encode({
       "username": Username,
       "user": userID,
@@ -135,7 +135,7 @@ class APIServiceUser {
   // static Future UserStatus(UserID) async {
   //   var headers = {'Content-Type': 'application/json'};
   //   var request =
-  //       http.Request('POST', Uri.parse("http://192.168.1.83:4000/user/status"));
+  //       http.Request('POST', Uri.parse("http://192.168.1.51:4000/user/status"));
   //   request.body = json.encode({"user": UserID});
   //   request.headers.addAll(headers);
 
