@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,13 +19,18 @@ class AcceptedOffers extends StatefulWidget {
 class _AcceptedOffersState extends State<AcceptedOffers> {
   List<UserOffers> offers = [];
   List<RegisteredOffers> Rejectedoffers = [];
+  late Timer timer;
   @override
   void initState() {
     super.initState();
-
+  timer = Timer.periodic(Duration(seconds: 1), (Timer t) => init());
     init();
   }
-
+@override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
   void init() async {
     final offersp =
         await APIOffreConductor.offreCompleted(currentConductor?.conductorId);
@@ -55,7 +62,7 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
                 children: <Widget>[
                   new Expanded(child: new Container()),
                   new TabBar(
-                    tabs: [new Text("Accepted Propositions",style: TextStyle(color:Color(0xFF005b71),fontWeight: FontWeight.bold),), new Text("Declined Propositions",style: TextStyle(color:Color(0xFF005b71),fontWeight: FontWeight.bold))],
+                    tabs: [new Text("Accepted Propositions",style: TextStyle(color:Color(0xFF005b71),fontWeight: FontWeight.bold),), new Text("Declined Propositions",style: TextStyle(color: Color.fromARGB(255, 113, 13, 0),fontWeight: FontWeight.bold))],
                     indicatorColor: Color(0xFF005b71),  
                   ),
                 ],
@@ -228,8 +235,7 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
                                       ),
                                     ),
                                   ),Container(
-                                       height: 2,
-                                  color :Color.fromARGB(255, 0, 90, 113),
+                                    
                                     child: ListTile(
                                       title:
                                       new RichText(
@@ -245,7 +251,9 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
                                       ),
                                     ),
                                   ),
-                                   
+                                   Container(
+                                      height: 2,
+                                 color :Color.fromARGB(255, 0, 90, 113)),
                                    Container(
                                     child: ListTile(
                                       title:
@@ -321,7 +329,7 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
                            const EdgeInsets.only(left: 30.0, right: 30,bottom:5),
                        child: Card(
                              //semanticContainer: false,
-                             shadowColor:  Color(0xFF005b71),
+                             shadowColor:   Color(0xFF005b71),
                              elevation: 15,
                             // color:  Color(0xFF005b71),
                              shape: RoundedRectangleBorder(
@@ -475,8 +483,7 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
                                      ),
                                    ),
                                  ),Container(
-                                      height: 2,
-                                 color :Color.fromARGB(255, 0, 90, 113),
+                                 
                                    child: ListTile(
                                      title:
                                      new RichText(
@@ -492,6 +499,9 @@ class _AcceptedOffersState extends State<AcceptedOffers> {
                                      ),
                                    ),
                                  ),
+                                 Container(
+                                      height: 2,
+                                 color :Color.fromARGB(255, 0, 90, 113),),
                                   
                                   Container(
                                    child: ListTile(

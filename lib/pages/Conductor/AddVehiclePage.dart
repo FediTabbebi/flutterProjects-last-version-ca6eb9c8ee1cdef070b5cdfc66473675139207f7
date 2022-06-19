@@ -77,13 +77,13 @@ class _RegisterConductorPageState extends State<AddVehicle> {
                 Get.defaultDialog(
                     title: "Error",
                     titleStyle: TextStyle(
-                        fontSize: 30,
+                        fontSize: 25,
                         color: Color(0xFFE40613),
                         fontWeight: FontWeight.bold),
                     middleText:
                         "your demand for adding this truck\n can not be submitted ",
                     middleTextStyle:
-                        TextStyle(color: Color(0xFF005b71), fontSize: 20));
+                        TextStyle(color: Color(0xFF005b71), fontSize: 17.5,fontWeight: FontWeight.bold));
               } else {
                 TruckLicenseImageID =
                     await UploadImages.uploadTruckDriverPictures(

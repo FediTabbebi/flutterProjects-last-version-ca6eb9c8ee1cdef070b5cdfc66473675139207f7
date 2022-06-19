@@ -19,7 +19,6 @@ class conductorRegisteredOffers extends StatefulWidget {
 
 class _conductorRegisteredOffersState extends State<conductorRegisteredOffers> {
   List<RegisteredOffers> offers = [];
-  List<RegisteredOffers> Rejectedoffers = [];
   @override
   void initState() {
     super.initState();
@@ -356,20 +355,20 @@ class _conductorRegisteredOffersState extends State<conductorRegisteredOffers> {
                                               Get.defaultDialog(
                                                   title: "Done",
                                                   titleStyle: TextStyle(
-                                                      fontSize: 30,
+                                                      fontSize: 25,
                                                       color: Color.fromARGB(
-                                                          255, 10, 101, 13)),
+                                                          255, 10, 101, 13),fontWeight: FontWeight.bold),
                                                   middleText:
                                                       "Your proposition has been deleted !",
                                                   middleTextStyle: TextStyle(
                                                       color:
                                                           Color(0xFF005b71),
-                                                      fontSize: 20));
+                                                      fontSize: 20,fontWeight: FontWeight.bold));
                                             } else {
                                               Get.defaultDialog(
                                                   title: "Error",
                                                   titleStyle: TextStyle(
-                                                      fontSize: 30,
+                                                      fontSize: 25,
                                                       color:
                                                           Color(0xFFE40613),
                                                       fontWeight:
@@ -379,7 +378,8 @@ class _conductorRegisteredOffersState extends State<conductorRegisteredOffers> {
                                                   middleTextStyle: TextStyle(
                                                       color:
                                                           Color(0xFF005b71),
-                                                      fontSize: 20));
+                                                      fontSize: 20,fontWeight:
+                                                          FontWeight.bold));
                                             }
                                           });
                                     },

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -16,12 +18,21 @@ class UserAcceptedOffers extends StatefulWidget {
 class _UserAcceptedOffersState extends State<UserAcceptedOffers> {
   List<UserOffers> offers = [];
   bool completedOffer = false;
+  late Timer timer;
+  
   @override
   void initState() {
     super.initState();
+   timer = Timer.periodic(Duration(seconds: 1), (Timer t) => init());
 
-    init();
+  
   }
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+  
 
   void init() async {
     final offersp = await APIOffreUser.AcceptedOffers(
@@ -32,6 +43,9 @@ class _UserAcceptedOffersState extends State<UserAcceptedOffers> {
     });
     
   }
+  
+   
+
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +188,7 @@ class _UserAcceptedOffersState extends State<UserAcceptedOffers> {
                                             fontWeight: FontWeight.bold,), ),
                                          new TextSpan(text:offers[index].getDescription,style: GoogleFonts.roboto(
                                            // fontSize: 16,
-                                            color: Colors.black,)) 
+                                            color: Colors.black,fontWeight:FontWeight.bold))
                                   ],
                                     
                                   ),
@@ -218,8 +232,8 @@ class _UserAcceptedOffersState extends State<UserAcceptedOffers> {
                                       ),
                                     ),
                                   ),Container(
-                                    height: 2,
-                                  color :Color.fromARGB(255, 0, 90, 113),
+                                  //   height: 2,
+                                  // color :Color.fromARGB(255, 0, 90, 113),
                                     child: ListTile(
                                       title:
                                       new RichText(
@@ -228,13 +242,16 @@ class _UserAcceptedOffersState extends State<UserAcceptedOffers> {
                                      
                                          new TextSpan(text:offers[index].getResponse,style: GoogleFonts.roboto(
                                            // fontSize: 16,
-                                            color: Colors.black,)) 
+                                            color: Colors.black,fontWeight:FontWeight.bold)) 
                                   ],
                                     
                                   ),
                                       ),
                                     ),
                                   ),
+                                  Container(
+                                     height: 2,
+                                   color :Color.fromARGB(255, 0, 90, 113),),
                                   Container(
                                     child: ListTile(
                                       title:
@@ -355,6 +372,7 @@ class _UserAcceptedOffersState extends State<UserAcceptedOffers> {
 
                                           if (CompletingOffre) {
                                             Get.back();
+                                            init();
                                             setState(() {
                                               offers.remove(offers[index]);
                                             });

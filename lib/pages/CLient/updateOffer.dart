@@ -495,13 +495,10 @@ class _updateOffreState extends State<updateOffre> {
                                         Color.fromARGB(255, 33, 125, 56),
                                     textColor: Colors.white,
                                     fontSize: 20.0);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ClientPage(index: 1)),
-                                );
-                              } else {
+                                                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+    ClientPage(index: 1)), (Route<dynamic> route) => false);
+                              } 
+                              if (!UpdatedOffre) {
                                 Get.back();
                                 Get.defaultDialog(
                                   title: "Error",

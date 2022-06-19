@@ -8,7 +8,7 @@ class APITruckServices {
   static RegisterTruck(truckModel, truckLicense) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request('POST',
-        Uri.parse('http://192.168.1.51:4000/conducteur/truck/register'));
+        Uri.parse('http://192.168.1.44:4000/conducteur/truck/register'));
 
     request.body =
         json.encode({"truckModel": truckModel, "truckLicense": truckLicense});
@@ -32,7 +32,7 @@ class APITruckServices {
       conductorId, truckModel, truckLicense, truckpaper, truckimage) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request('PATCH',
-        Uri.parse('http://192.168.1.51:4000/conducteur/truck/addtruck'));
+        Uri.parse('http://192.168.1.44:4000/conducteur/truck/addtruck'));
     request.body = json.encode({
       "conducteur": conductorId,
       "truckModel": truckModel,
@@ -56,7 +56,7 @@ class APITruckServices {
   static DeleteTruck(truckId, conductorId) async {
     var headers = {'Content-Type': 'application/json'};
     var request = http.Request('DELETE',
-        Uri.parse('http://192.168.1.51:4000/conducteur/truck/deletetruck'));
+        Uri.parse('http://192.168.1.44:4000/conducteur/truck/deletetruck'));
     request.body = json.encode({"conducteur": conductorId, "truck": truckId});
     request.headers.addAll(headers);
 
@@ -84,7 +84,7 @@ class APITruckServices {
     var request = http.Request(
         'POST',
         Uri.parse(
-            'http://192.168.1.51:4000/conducteur/truck/gettrucksbyconducteur'));
+            'http://192.168.1.44:4000/conducteur/truck/gettrucksbyconducteur'));
     request.body = json.encode({"conducteur": conductorID});
     request.headers.addAll(headers);
     List<Truck> alltrucks = [];
@@ -109,7 +109,7 @@ class APITruckServices {
     var request = http.Request(
         'POST',
         Uri.parse(
-            'http://192.168.1.51:4000/conducteur/truck/gettrucksbyconducteur'));
+            'http://192.168.1.44:4000/conducteur/truck/gettrucksbyconducteur'));
     request.body = json.encode({"conducteur": conductorID});
     request.headers.addAll(headers);
     List<String> TruckItems = [];
@@ -133,7 +133,7 @@ class APITruckServices {
     var request = http.Request(
         'POST',
         Uri.parse(
-            'http://192.168.1.51:4000/conducteur/truck/gettrucksbyconducteur'));
+            'http://192.168.1.44:4000/conducteur/truck/gettrucksbyconducteur'));
     request.body = json.encode({"conducteur": conductorID});
     request.headers.addAll(headers);
     List<String> TruckItems = [];

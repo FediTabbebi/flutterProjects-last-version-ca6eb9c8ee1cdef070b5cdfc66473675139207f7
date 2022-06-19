@@ -269,12 +269,12 @@ class _RegisterPageState extends State<RegisterPage> {
                               Get.defaultDialog(
                                   title: "Error",
                                   titleStyle: TextStyle(
-                                      fontSize: 30,
+                                      fontSize: 25,
                                       color: Color(0xFFE40613),
-                                      fontWeight: FontWeight.bold),
+                                      ),
                                   middleText: "Adress email already in use",
                                   middleTextStyle: TextStyle(
-                                      color: Color(0xFF005b71), fontSize: 20));
+                                      color: Color(0xFF005b71), fontSize: 17.5,fontWeight: FontWeight.bold));
                             }
                           }
                         }),

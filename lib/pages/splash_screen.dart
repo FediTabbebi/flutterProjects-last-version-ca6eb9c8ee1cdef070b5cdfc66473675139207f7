@@ -53,24 +53,28 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder: (context,child) => Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-        ),
-        child: AnimatedOpacity(
-          opacity: _isVisible ? 1.0 : 0,
-          duration: Duration(milliseconds: 1750),
-          child: Center(
-            child: Container(
-              height: 160.0.h,
-              width: 160.0.w,
+      builder: (context,child) => SafeArea(
+        child: Scaffold(
+          body: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: AnimatedOpacity(
+              opacity: _isVisible ? 1.0 : 0,
+              duration: Duration(milliseconds: 1750),
               child: Center(
-                child: ClipOval(
-                  child:
-                      Hero(tag: "blaze", child: Image.asset('images/Lg.png')),
+                child: Container(
+                  height: 160.0.h,
+                  width: 160.0.w,
+                  child: Center(
+                    child: ClipOval(
+                      child:
+                          Hero(tag: "blaze", child: Image.asset('images/Lg.png')),
+                    ),
+                  ),
+                  decoration: BoxDecoration(),
                 ),
               ),
-              decoration: BoxDecoration(),
             ),
           ),
         ),
